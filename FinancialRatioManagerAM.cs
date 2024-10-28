@@ -32,10 +32,10 @@ namespace FranchisorEXE
             }
             else
             {
-
                 return "$0"; // Default value if parsing fails
             }
         }
+
         //  function to safely convert strings to double
         public static double SafeConvertToDouble(string value)
         {
@@ -45,6 +45,7 @@ namespace FranchisorEXE
             }
             return 0.0; // Default to zero if conversion fails
         }
+
         //  function to calculate percentage safely
         public static string SafeCalculatePercentage(string numerator, string denominator)
         {
@@ -128,8 +129,6 @@ namespace FranchisorEXE
                                         YOYSales = qbdpAM.YoYGrowth(pnl.NetEventSales, fdReportLastYear.NetEventSales);
                                         YOYIncome = qbdpAM.YoYGrowth(pnl.NetOperatingIncome, fdReportLastYear.NetOperatingIncome);
 
-
-
                                     }
                                     pnl.NetOperatingIncomeYoYGrowthRate = YOYIncome;
                                     pnl.NetEventSalesYoYGrowthRate = YOYSales;
@@ -156,10 +155,7 @@ namespace FranchisorEXE
 
                                 }
 
-
-
                             }
-
 
                             //qboFinancialData += result;
                         }
@@ -181,11 +177,9 @@ namespace FranchisorEXE
 
             Common.WriteLog("Process completed: " + DateTime.Now.ToString());
         }
-
-
+        
         public string GenerateQuery(FinancialData pnl, QBOSettings qBOSettings, string TimePeriod, bool IsMonthWise = false)
         {
-
 
             string LabourEfficiency = "0.0";
             string FoodCostEfficiency = "0.0";
@@ -194,8 +188,7 @@ namespace FranchisorEXE
             string ProfitMargin = "0.0";
             string PassThruasPercentage = "0.0";
             string CCFeeasPercentage = "0.0";
-
-
+            
             string CostOfGoods = FormatAsCurrency(pnl.CostOfGoods);
             string GrossProfit = FormatAsCurrency(pnl.GrossProfit);
             string CostOfLabor = FormatAsCurrency(pnl.CostOfLabor);
@@ -401,7 +394,6 @@ namespace FranchisorEXE
             Common.WriteLog("Get QBO Settings: " + DateTime.Now.ToString());
             return qbs;
         }
-
 
     }
 }

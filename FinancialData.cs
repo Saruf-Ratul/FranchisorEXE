@@ -58,9 +58,6 @@ namespace FranchisorEXE
         public string OfficeSuppliesAndSubscriptionsPercentage { get; set; } = "0.00";
         public string OtherExpensesPercentage { get; set; } = "0.00";
         public string NetEventSalesYoYGrowthRate { get; set; } = "0.00";
-
-
-        
         
     }
 

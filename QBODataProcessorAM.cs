@@ -24,7 +24,6 @@ namespace FranchisorEXE
     //Saruf Ratul//
     public class QBODataProcessorAM
     {
-
         public static DataTable GetDisplayItemsFromDBAM(string FranchisorID, string LocatinoID)
         {
             Database db = new Database();
@@ -53,7 +52,6 @@ namespace FranchisorEXE
 
                 db.Execute(strSQL, out dt);
             }
-
 
             db.Close();
 
@@ -114,8 +112,6 @@ namespace FranchisorEXE
                 Common.WriteLog("GetProfitAndLossInfoAM from QBO: " + DateTime.Now.ToString() + "-" + ex.Message);
 
             }
-
-
             return pnl;
         }
 
@@ -216,11 +212,10 @@ namespace FranchisorEXE
 
                     break;
 
-
             }
             return (dateStart, dateEnd);
-
         }
+
         public static DateTime GetStartOfQuarter(int year, int quarter)
         {
             switch (quarter)
@@ -314,7 +309,6 @@ namespace FranchisorEXE
                     serviceContext.IppConfiguration.BaseUrl.Qbo = "https://quickbooks.api.intuit.com/";//prod
                 }
 
-
                 serviceContext.IppConfiguration.MinorVersion.Qbo = "29";
                 return serviceContext;
             }
@@ -326,8 +320,6 @@ namespace FranchisorEXE
                 return null;
 
             }
-
-
 
         }
 
@@ -425,12 +417,10 @@ namespace FranchisorEXE
 
         private bool IsTokenValidAM(QBOSettings qboSettings)
         {
-
             bool retVal = false;
 
             try
             {
-
                 ServiceContext context = GetServiceContextAM(qboSettings.AccessToken, qboSettings.FileID, qboSettings.Sandbox);
 
                 string qboQuery = "Select * From CompanyInfo";
@@ -480,6 +470,7 @@ namespace FranchisorEXE
             int choiceElementIndex = GetChoiceElementIndex(row, itemsChoiceType);
             if (choiceElementIndex == -1) { return default(T); } else { return (T)row.AnyIntuitObjects[choiceElementIndex]; }
         }
+
         private static int GetChoiceElementIndex(Row row, ItemsChoiceType1 itemsChoiceType)
         {
             if (row.ItemsElementName != null)
@@ -491,6 +482,7 @@ namespace FranchisorEXE
             }
             return -1;
         }
+
         public static void PopulateProfitAndLossReport(string startDate, string endDate, ServiceContext context, FinancialData financialData)
         {
             ReportService reportsService = new ReportService(context);
@@ -670,13 +662,6 @@ namespace FranchisorEXE
             }
         }
 
-
-
-
-
-
-
-
         //  YoY Growth function
         public string YoYGrowth(string currentValue, string previousValue)
         {
@@ -700,6 +685,7 @@ namespace FranchisorEXE
             }
             return 0.0; // Default to zero if conversion fails
         }
+        
         public static ServiceContext GetServiceContext(string accessToken, string realmId, bool QBOSandBox = false)
         {
             //Get the QBO ServiceContext
@@ -727,20 +713,17 @@ namespace FranchisorEXE
                     serviceContext.IppConfiguration.BaseUrl.Qbo = "https://quickbooks.api.intuit.com/";//prod
                 }
 
-
                 serviceContext.IppConfiguration.MinorVersion.Qbo = "29";
                 return serviceContext;
             }
             catch (Exception ex)
             {
-
                 return null;
 
             }
-
-
-
+            
         }
+
         public FinancialData GetFinancialReport(QBOSettings qbs, string startDate = "", string endDate = "")
         {
             FinancialData financialData = new FinancialData();
@@ -775,7 +758,6 @@ namespace FranchisorEXE
             {
                 // Handle exceptions
             }
-
 
             return financialData;
         }

@@ -280,8 +280,8 @@ namespace FranchisorEXE
                                     break;
                             }
 
-
                         }
+
                         catch { }
 
                         string result = "INSERT INTO dbo.tbl_FinancialRatio (FranchaisorID, LocationID, Date, QuickRatio, TotalRevenue, RevenuePerEmployee, GrossProfitMargin, ProfitMargin, GrossProfit)" +
@@ -298,7 +298,6 @@ namespace FranchisorEXE
 
                         qboFinancialData += result;
                     }
-
 
                 }
                 catch (Exception ex)

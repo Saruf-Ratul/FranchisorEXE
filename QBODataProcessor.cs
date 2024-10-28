@@ -56,6 +56,7 @@ namespace FranchisorEXE
 
             return dt;
         }
+
         public static DataSet LoadGoalData(string FranchisorID, string LocationID)
         {
             DataSet dtAppt = new DataSet();
@@ -77,6 +78,7 @@ namespace FranchisorEXE
 
             return dtAppt;
         }
+
         public static QBOSettings GetQBOSettingsLocationWise(string FranchisorID, string LocationID)
         {
             QBOSettings qbs = null;
@@ -107,8 +109,6 @@ namespace FranchisorEXE
                     qbs.FileID = dr["BQOFileID"].ToString();
                     bool sandbox = Convert.ToBoolean(ConfigurationManager.AppSettings["QBOSandBox"].ToString());
                     qbs.Sandbox = sandbox;
-
-
                 }
 
                 db.Close();
@@ -118,6 +118,7 @@ namespace FranchisorEXE
 
             return qbs;
         }
+
         public ServiceContext GetServiceContext(string accessToken, string realmId, bool QBOSandBox = false)
         {
             //Get the QBO ServiceContext
@@ -146,6 +147,7 @@ namespace FranchisorEXE
             }
 
         }
+
         public bool RefreshAccessToken(QBOSettings qboSettings)
         {
             bool retVal = false;
@@ -219,6 +221,7 @@ namespace FranchisorEXE
             return retVal;
 
         }
+
         private bool IsTokenValid(QBOSettings qboSettings)
         {
 
@@ -248,6 +251,7 @@ namespace FranchisorEXE
 
             return retVal;
         }
+
         private void UpdateToken(QBOSettings qboSettings)
         {
             Database db = new Database();
@@ -271,6 +275,7 @@ namespace FranchisorEXE
                 qboSettings.ErrorMessage += ex.Message;
             }
         }
+        
         public CashFlowInfo GetCashFlowInfo(QBOSettings qbs)
         {
             CashFlowInfo cfInfo = new CashFlowInfo();
@@ -351,11 +356,13 @@ namespace FranchisorEXE
             return cfInfo;
 
         }
+
         private T GetRowProperty<T>(Row row, ItemsChoiceType1 itemsChoiceType)
         {
             int choiceElementIndex = GetChoiceElementIndex(row, itemsChoiceType);
             if (choiceElementIndex == -1) { return default(T); } else { return (T)row.AnyIntuitObjects[choiceElementIndex]; }
         }
+        
         private int GetChoiceElementIndex(Row row, ItemsChoiceType1 itemsChoiceType)
         {
             if (row.ItemsElementName != null)
@@ -367,6 +374,7 @@ namespace FranchisorEXE
             }
             return -1;
         }
+        
         private void getValueFromBalanceSheet(ServiceContext context, CashFlowInfo cfInfo)
         {
 
@@ -470,6 +478,7 @@ namespace FranchisorEXE
             }
 
         }
+        
         public ProfitAndLossInfo GetProfitAndLossInfo(string TimePeriod, QBOSettings qbs)
         {
             ProfitAndLossInfo pnl = new ProfitAndLossInfo();
@@ -541,6 +550,7 @@ namespace FranchisorEXE
             }
             return pnl;
         }
+        
         private void PopulateProfitAndLossInfo(string startDate, string endDate, ServiceContext context, ProfitAndLossInfo pnl, string period)
         {
             string CostOfGoods = "0.0";
@@ -612,7 +622,6 @@ namespace FranchisorEXE
                             }
                         }
                     }
-
 
                     //Get Row Summary
                     Summary rowSummary = GetRowProperty<Summary>(row, ItemsChoiceType1.Summary);
@@ -711,8 +720,6 @@ namespace FranchisorEXE
 
     }
 
-    
-  
     //public class FinanCialRatioDataTBK
     //{
     //    public string RevenuePerEmployee { get; set; }
@@ -739,6 +746,6 @@ namespace FranchisorEXE
     //    public string QBOPassThru { get; set; }
     //    public string QBOCCFee { get; set; }
     //    public string EventSupply { get; set; }
-
     //}
+
 }
