@@ -197,7 +197,7 @@ namespace FranchisorEXE
             string TotalIncome = FormatAsCurrency(pnl.TotalIncome);
             string NetEventSales = FormatAsCurrency(pnl.NetEventSales);
             string FoodCosts = FormatAsCurrency(pnl.FoodCosts);
-            // string EventSupplies = FormatAsCurrency(pnl.EventSupplies);
+            //string EventSupplies = FormatAsCurrency(pnl.EventSupplies);
             string TotalOtherExpenses = FormatAsCurrency(pnl.TotalOtherExpenses);
             string NetIncome = FormatAsCurrency(pnl.NetIncome);
             string TotalPayroll = FormatAsCurrency(pnl.TotalPayroll);
@@ -259,7 +259,6 @@ namespace FranchisorEXE
 
             //double profitmargin = _NetOperatingIncome;
             // According to JAY Profit Margin % - (Sales 4200 - COGS - Operating Expenses) / Sales 4200 X 100
-
             //ProfitMargin = profitmargin.ToString("0").Replace("NaN", "0");
             //ProfitMarginPercent = (profitmargin * 100).ToString("0.0") + "%";
 
@@ -267,14 +266,30 @@ namespace FranchisorEXE
             double _CostOfGoods = string.IsNullOrEmpty(pnl?.CostOfGoods) ? 0.00 : Math.Ceiling(Convert.ToDouble(pnl.CostOfGoods));
             double _TotalExpenses = string.IsNullOrEmpty(pnl?.TotalExpenses) ? 0.00 : Math.Ceiling(Convert.ToDouble(pnl.TotalExpenses));
 
-
-            Double _Cost = _NetEventSales - _CostOfGoods - _TotalExpenses;
-
+            double _Cost = _NetEventSales - _CostOfGoods - _TotalExpenses;
             double _ProfitMarginPercent = (_Cost / sales) * 100;
-            ProfitMargin = (_Cost / sales).ToString("0.00");
 
-            // ProfitMarginPercent = Income
-            ProfitMarginPercent = _ProfitMarginPercent.ToString("0.0").Replace("∞", "0.0") + "%";
+
+            //Saruf
+            //Net Income ÷ Revenue × 100
+
+            double netIncome = Convert.ToDouble(pnl.NetIncome);
+            double revenue = Convert.ToDouble(pnl.TotalIncome);
+            double grossProfit = Convert.ToDouble(pnl.GrossProfit);
+            double profitMargin = Math.Round((netIncome / revenue) * 100, 2);
+
+            //ProfitMargin = (netIncome / revenue).ToString("0.00");
+            //ProfitMarginPercent = (profitMargin).ToString("N", System.Globalization.CultureInfo.GetCultureInfo("en-US")) + "%";
+            
+            ProfitMargin = Math.Round(netIncome / revenue * 100).ToString("0.00") + "%";
+
+            ProfitMarginPercent = Math.Round((grossProfit / revenue) * 100).ToString("0.00") + "%";
+
+            //?//
+
+            //ProfitMargin = (_Cost / sales).ToString("0.00");
+            //ProfitMarginPercent = Income
+            //ProfitMarginPercent = _ProfitMarginPercent.ToString("0.0").Replace("∞", "0.0") + "%";
 
             // Efficiency Calculations
             LabourEfficiency = SafeCalculatePercentage(Payroll.ToString(), sales.ToString()).ToString();
@@ -368,7 +383,7 @@ namespace FranchisorEXE
             string strSQL = @"SELECT   l.LocationID, l.LocationName, f.FranchisorType, l.AccessToken, l.RefreshToken, l.BQOFileID,
                                   l.QuickbookCompanyName, l.ConnectionStatus, l.LastQBOSync, l.FranchisorID
                           FROM     tbl_Franchaisor as f INNER JOIN
-                                  tbl_Location as l  ON f.FranchisorID = l.FranchisorID where f.FranchisorType='Aire-Master' and l.ConnectionStatus=1  ";
+                                  tbl_Location as l  ON f.FranchisorID = l.FranchisorID where f.FranchisorType <> 'TBK' and l.ConnectionStatus=1  ";
 
             //strSQL += " and l.LocationID='14206' ;";
             Database db = new Database();
