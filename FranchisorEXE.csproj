@@ -109,6 +109,7 @@
     <Compile Include="Database.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="FinancialData.cs" />
+    <Compile Include="FinancialRatioManagerDemo.cs" />
     <Compile Include="FinancialRatioManagerAM.cs" />
     <Compile Include="FinancialRatioManager.cs" />
     <Compile Include="FinancialRatioManagerTBK.cs" />
