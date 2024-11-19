@@ -20,10 +20,10 @@ namespace FranchisorEXE
             //TBK
             //Saruf Ratul//
 
-            //FinancialRatioManagerTBK frTBK = new FinancialRatioManagerTBK();
-            //frTBK.Get_FinancialRatio_DataTBK();
+            FinancialRatioManagerTBK frTBK = new FinancialRatioManagerTBK();
+            frTBK.Get_FinancialRatio_DataTBK();
 
-            //Console.WriteLine("Financial Ratio Data TBK Loaded");
+            Console.WriteLine("Financial Ratio Data TBK Loaded");
 
             //AM
             //Saruf Ratul//
