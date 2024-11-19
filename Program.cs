@@ -37,10 +37,10 @@ namespace FranchisorEXE
             //Demo
             //Saruf Ratul//
 
-            FinancialRatioManagerDemo frDemo = new FinancialRatioManagerDemo();
-            frDemo.Get_FinancialRatio_DataDemo();
+            //FinancialRatioManagerDemo frDemo = new FinancialRatioManagerDemo();
+            //frDemo.Get_FinancialRatio_DataDemo();
 
-            Console.WriteLine("Financial Ratio Data Demo Loaded");
+            //Console.WriteLine("Financial Ratio Data Demo Loaded");
         }
     }
 }
