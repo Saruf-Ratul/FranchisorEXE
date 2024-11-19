@@ -18,15 +18,15 @@ namespace FranchisorEXE
             //Console.WriteLine("Financial Ratio Data Loaded");
 
             //TBK
-            //Saruf Ratul//
+            //Saruf Ratul//-- Updated by Saruf Ratul on 2024-09-10
 
-            FinancialRatioManagerTBK frTBK = new FinancialRatioManagerTBK();
-            frTBK.Get_FinancialRatio_DataTBK();
+            //FinancialRatioManagerTBK frTBK = new FinancialRatioManagerTBK();
+            //frTBK.Get_FinancialRatio_DataTBK();
 
-            Console.WriteLine("Financial Ratio Data TBK Loaded");
+            //Console.WriteLine("Financial Ratio Data TBK Loaded");
 
             //AM
-            //Saruf Ratul//
+            //Saruf Ratul//-- Updated by Saruf Ratul on 2024-10-12
 
             FinancialRatioManagerAM frAM = new FinancialRatioManagerAM();
             frAM.Get_FinancialRatio_DataAM();
@@ -35,7 +35,7 @@ namespace FranchisorEXE
 
 
             //Demo
-            //Saruf Ratul//
+            //Saruf Ratul//-- Updated by Saruf Ratul on 2024-10-20
 
             //FinancialRatioManagerDemo frDemo = new FinancialRatioManagerDemo();
             //frDemo.Get_FinancialRatio_DataDemo();
@@ -44,7 +44,7 @@ namespace FranchisorEXE
 
 
             //FLC
-            //Saruf Ratul//
+            //Saruf Ratul//-- Updated by Saruf Ratul on 2024-11-19
 
             //FinancialRatioManagerFLC fr = new FinancialRatioManagerFLC();
             //fr.Get_FinancialRatio_DataFLC();
