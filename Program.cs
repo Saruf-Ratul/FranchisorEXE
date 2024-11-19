@@ -41,6 +41,15 @@ namespace FranchisorEXE
             //frDemo.Get_FinancialRatio_DataDemo();
 
             //Console.WriteLine("Financial Ratio Data Demo Loaded");
+
+
+            //FLC
+            //Saruf Ratul//
+
+            //FinancialRatioManagerFLC fr = new FinancialRatioManagerFLC();
+            //fr.Get_FinancialRatio_DataFLC();
+
+            //Console.WriteLine("Financial Ratio Data FLC Loaded");
         }
     }
 }

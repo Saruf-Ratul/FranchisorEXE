@@ -25,4 +25,7 @@ public class QBOSettings
     public string ConnectedLocationName = "";
     public string QuickbookCompanyName = "";
 
+    public bool ClassAsLocation = false;
+    public string ClassID = "";
+
 }
