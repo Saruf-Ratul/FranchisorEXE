@@ -110,6 +110,7 @@
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="FinancialData.cs" />
     <Compile Include="FinancialRatioManagerDemo.cs" />
+    <Compile Include="FinancialRatioManagerLHG.cs" />
     <Compile Include="FinancialRatioManagerFLC.cs" />
     <Compile Include="FinancialRatioManagerAM.cs" />
     <Compile Include="FinancialRatioManager.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QBODataProcessor.cs" />
     <Compile Include="QBODataProcessorAM.cs" />
+    <Compile Include="QBODataProcessorLHG.cs" />
     <Compile Include="QBODataProcessorTBK.cs" />
     <Compile Include="QBODataProcessorFLC.cs" />
     <Compile Include="QBOSettings.cs" />

@@ -28,10 +28,10 @@ namespace FranchisorEXE
             //AM
             //Saruf Ratul//-- Updated by Saruf Ratul on 2024-10-12
 
-            FinancialRatioManagerAM frAM = new FinancialRatioManagerAM();
-            frAM.Get_FinancialRatio_DataAM();
+            //FinancialRatioManagerAM frAM = new FinancialRatioManagerAM();
+            //frAM.Get_FinancialRatio_DataAM();
 
-            Console.WriteLine("Financial Ratio Data AM Loaded");
+            //Console.WriteLine("Financial Ratio Data AM Loaded");
 
 
             //Demo
@@ -50,6 +50,14 @@ namespace FranchisorEXE
             //fr.Get_FinancialRatio_DataFLC();
 
             //Console.WriteLine("Financial Ratio Data FLC Loaded");
+
+            //LHG
+            //Saruf Ratul//-- Updated by Saruf Ratul on 2025-01-28
+
+            FinancialRatioManagerLHG fr = new FinancialRatioManagerLHG();
+            fr.Get_FinancialRatio_DataLHG();
+
+            Console.WriteLine("Financial Ratio Data LHG Loaded");
         }
     }
 }
