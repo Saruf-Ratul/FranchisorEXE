@@ -7,13 +7,15 @@
 * Franchisor
 * FranchisorTBK
 * FranchisorAM
+* FranchisorFLC
+* FranchisorLHG
 
 ## Getting Started
 Console Application
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* Describe any prerequisites, libraries, OS version, etc., needed before installing a program.
 * ex. Windows 10
 
 ## Authors
@@ -27,6 +29,8 @@ Contributors names and contact info
 ## Version History
 * 0.1
     * Initial Release
+    * Company Base QBO Data Coluction
+      
 
 ## License
 
