@@ -46,18 +46,20 @@ namespace FranchisorEXE
             //FLC
             //Saruf Ratul//-- Updated by Saruf Ratul on 2024-11-19
 
-            //FinancialRatioManagerFLC fr = new FinancialRatioManagerFLC();
-            //fr.Get_FinancialRatio_DataFLC();
+            //FinancialRatioManagerFLC frFLC = new FinancialRatioManagerFLC();
+            //frFLC.Get_FinancialRatio_DataFLC();
 
             //Console.WriteLine("Financial Ratio Data FLC Loaded");
 
             //LHG
             //Saruf Ratul//-- Updated by Saruf Ratul on 2025-01-28
 
-            FinancialRatioManagerLHG fr = new FinancialRatioManagerLHG();
-            fr.Get_FinancialRatio_DataLHG();
+            FinancialRatioManagerLHG frLHG = new FinancialRatioManagerLHG();
+            frLHG.Get_FinancialRatio_DataLHG();
 
-            Console.WriteLine("Financial Ratio Data LHG Loaded");
+            Console.WriteLine("######################");
+            Console.WriteLine("End DataLoaded For LHG");
+            Console.WriteLine("######################");
         }
     }
 }
