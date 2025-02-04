@@ -536,12 +536,136 @@ namespace FranchisorEXE
             }
         }
 
+        //public static void FetchValuesFromColData(ColData[] colData, FinancialData financialData)
+        //{
+        //    foreach (var col in colData)
+        //    {
+        //        string key = col.value.ToLower();
+        //        string value = colData[1].value;
+
+        //        if (key.Contains("total cost of goods sold"))
+        //        {
+        //            financialData.CostOfGoods = value;
+        //        }
+        //        else if (key.Contains("gross profit"))
+        //        {
+        //            financialData.GrossProfit = value;
+        //        }
+        //        else if (key.Contains("labor"))
+        //        {
+        //            financialData.CostOfLabor = value;
+        //        }
+        //        else if (key.Contains("net operating income"))
+        //        {
+        //            financialData.NetIncome = value;
+        //            financialData.NetOperatingIncome = value;
+        //        }
+        //        else if (key.Contains("total income"))
+        //        {
+        //            financialData.TotalIncome = value;
+        //        }
+
+        //        else if (key.Contains("total expenses"))
+        //        {
+        //            financialData.TotalExpenses = value;
+        //        }
+        //        else if (key.Contains("total other expenses"))
+        //        {
+        //            financialData.TotalOtherExpenses = value;
+        //        }
+        //        else if (key.Contains("net event sales"))
+        //        {
+        //            financialData.NetEventSales = value;
+        //        }
+        //        else if (key.Contains("event supplies"))
+        //        {
+        //            financialData.EventSupplies = value;
+        //        }
+        //        else if (key.Contains("food costs"))
+        //        {
+        //            financialData.FoodCosts = value;
+        //        }
+        //        else if (key.Contains("total payroll"))
+        //        {
+        //            financialData.TotalPayroll = value;
+        //        }
+        //        else if (key.Contains("4100 pass-through gratuities"))
+        //        {
+        //            financialData.PassThroughGratuities = value;
+        //        }
+        //        else if (key.Contains("credit card processing"))
+        //        {
+        //            financialData.MerchantCreditCardProcessing = value;
+        //        }
+        //        else if (key.Contains("advertising and marketing"))
+        //        {
+        //            financialData.TotalAdvertisingAndMarketing = value;
+        //        }
+        //        else if (key.Contains("occupancy expenses"))
+        //        {
+        //            financialData.TotalOccupancyExpenses = value;
+        //        }
+        //        else if (key.Contains("repairs & maintenance"))
+        //        {
+        //            financialData.RepairsAndMaintenance = value;
+        //        }
+        //        else if (key.Contains("utilities"))
+        //        {
+        //            financialData.Utilities = value;
+        //        }
+        //        else if (key.Contains("royalty"))
+        //        {
+        //            financialData.Royalty = value;
+        //        }
+        //        else if (key.Contains("technology fee"))
+        //        {
+        //            financialData.TechnologyFee = value;
+        //        }
+        //        else if (key.Contains("brand fund contribution"))
+        //        {
+        //            financialData.BrandFundContribution = value;
+        //        }
+        //        else if (key.Contains("business insurance"))
+        //        {
+        //            financialData.BusinessInsurance = value;
+        //        }
+        //        else if (key.Contains("office supplies & subscriptions"))
+        //        {
+        //            financialData.OfficeSuppliesAndSubscriptions = value;
+        //        }
+        //        else if (key.Contains("other expenses"))
+        //        {
+        //            financialData.OtherExpenses = value;
+        //        }
+        //        else if (key.Contains("sales tax"))
+        //        {
+        //            financialData.SalesTax = value;
+        //        }
+        //        else if (key.Contains("health insurance premiums"))
+        //        {
+        //            financialData.HealthInsurancePremiumsExpenses = value;
+        //        }
+        //        else if (key.Contains("retirement contributions"))
+        //        {
+        //            financialData.RetirementContributionsExpenses = value;
+        //        }
+        //        else if (key.Contains("net operating income"))
+        //        {
+        //            financialData.NetOperatingIncome = value;
+        //        }
+
+        //    }
+        //}
+
+
         public static void FetchValuesFromColData(ColData[] colData, FinancialData financialData)
         {
             foreach (var col in colData)
             {
                 string key = col.value.ToLower();
-                string value = colData[1].value;
+                string value = (colData.Length > 1) ? colData[1].value : "0"; // Safe access
+
+                Console.WriteLine($"Key: {key}, Value: {value}");
 
                 if (key.Contains("total cost of goods sold"))
                 {
@@ -555,107 +679,21 @@ namespace FranchisorEXE
                 {
                     financialData.CostOfLabor = value;
                 }
-                else if (key.Contains("net operating income"))
-                {
-                    financialData.NetIncome = value;
-                    financialData.NetOperatingIncome = value;
-                }
                 else if (key.Contains("total income"))
                 {
                     financialData.TotalIncome = value;
                 }
-
                 else if (key.Contains("total expenses"))
                 {
                     financialData.TotalExpenses = value;
                 }
-                else if (key.Contains("total other expenses"))
+                else if (key.Contains("profit"))
                 {
-                    financialData.TotalOtherExpenses = value;
+                    financialData.NetIncome = value;
                 }
-                else if (key.Contains("net event sales"))
-                {
-                    financialData.NetEventSales = value;
-                }
-                else if (key.Contains("event supplies"))
-                {
-                    financialData.EventSupplies = value;
-                }
-                else if (key.Contains("food costs"))
-                {
-                    financialData.FoodCosts = value;
-                }
-                else if (key.Contains("total payroll"))
-                {
-                    financialData.TotalPayroll = value;
-                }
-                else if (key.Contains("4100 pass-through gratuities"))
-                {
-                    financialData.PassThroughGratuities = value;
-                }
-                else if (key.Contains("credit card processing"))
-                {
-                    financialData.MerchantCreditCardProcessing = value;
-                }
-                else if (key.Contains("advertising and marketing"))
-                {
-                    financialData.TotalAdvertisingAndMarketing = value;
-                }
-                else if (key.Contains("occupancy expenses"))
-                {
-                    financialData.TotalOccupancyExpenses = value;
-                }
-                else if (key.Contains("repairs & maintenance"))
-                {
-                    financialData.RepairsAndMaintenance = value;
-                }
-                else if (key.Contains("utilities"))
-                {
-                    financialData.Utilities = value;
-                }
-                else if (key.Contains("royalty"))
-                {
-                    financialData.Royalty = value;
-                }
-                else if (key.Contains("technology fee"))
-                {
-                    financialData.TechnologyFee = value;
-                }
-                else if (key.Contains("brand fund contribution"))
-                {
-                    financialData.BrandFundContribution = value;
-                }
-                else if (key.Contains("business insurance"))
-                {
-                    financialData.BusinessInsurance = value;
-                }
-                else if (key.Contains("office supplies & subscriptions"))
-                {
-                    financialData.OfficeSuppliesAndSubscriptions = value;
-                }
-                else if (key.Contains("other expenses"))
-                {
-                    financialData.OtherExpenses = value;
-                }
-                else if (key.Contains("sales tax"))
-                {
-                    financialData.SalesTax = value;
-                }
-                else if (key.Contains("health insurance premiums"))
-                {
-                    financialData.HealthInsurancePremiumsExpenses = value;
-                }
-                else if (key.Contains("retirement contributions"))
-                {
-                    financialData.RetirementContributionsExpenses = value;
-                }
-                else if (key.Contains("net operating income"))
-                {
-                    financialData.NetOperatingIncome = value;
-                }
-
             }
         }
+
 
         //  YoY Growth function
         public string YoYGrowth(string currentValue, string previousValue)
