@@ -660,28 +660,40 @@ namespace FranchisorEXE
 
         public static void FetchValuesFromColData(ColData[] colData, FinancialData financialData)
         {
+            if (colData == null || colData.Length == 0)
+            {
+                Console.WriteLine("Warning: colData is NULL or empty.");
+                return;
+            }
+
+            Console.WriteLine($"colData Length: {colData.Length}");
+
+            // Debugging: Print all available colData entries
+            for (int i = 0; i < colData.Length; i++)
+            {
+                Console.WriteLine($"colData[{i}] = {colData[i]?.value}");
+            }
+
             foreach (var col in colData)
             {
                 string key = col.value.ToLower();
                 string value = (colData.Length > 1) ? colData[1].value : "0"; // Safe access
 
-                Console.WriteLine($"Key: {key}, Value: {value}");
+                Console.WriteLine($"Processing Key: {key}, Extracted Value: {value}");
 
-                if (key.Contains("total cost of goods sold"))
+                // 📌 MAIN KPIs
+
+                if (key.Contains("total income"))
+                {
+                    financialData.TotalIncome = value;
+                }
+                else if (key.Contains("total cost of goods sold"))
                 {
                     financialData.CostOfGoods = value;
                 }
                 else if (key.Contains("gross profit"))
                 {
                     financialData.GrossProfit = value;
-                }
-                else if (key.Contains("labor"))
-                {
-                    financialData.CostOfLabor = value;
-                }
-                else if (key.Contains("total income"))
-                {
-                    financialData.TotalIncome = value;
                 }
                 else if (key.Contains("total expenses"))
                 {
@@ -691,8 +703,123 @@ namespace FranchisorEXE
                 {
                     financialData.NetIncome = value;
                 }
+
+                // 📌 SUB-KPIs (Breakdown of COGS, Expenses, Payroll, etc.)
+
+                // 🔹 COGS Breakdown
+                else if (key.Contains("cogs - labour"))
+                {
+                    financialData.CostOfLabor = value;
+                }
+                else if (key.Contains("cogs - disposal"))
+                {
+                    financialData.CostOfDisposal = value;
+                }
+                else if (key.Contains("cogs - materials"))
+                {
+                    financialData.CostOfMaterials = value;
+                }
+
+                // 🔹 Franchise Fees
+                else if (key.Contains("franchise royalty fees"))
+                {
+                    financialData.RoyaltyFees = value;
+                }
+
+                // 🔹 Indirect Expenses Breakdown
+                else if (key.Contains("van insurance"))
+                {
+                    financialData.IndirectVanInsurance = value;
+                }
+                else if (key.Contains("tools & supplies"))
+                {
+                    financialData.IndirectToolsSupplies = value;
+                }
+
+                // 🔹 Operating Expenses Breakdown
+                else if (key.Contains("advertising and promotion"))
+                {
+                    financialData.AdvertisingAndPromotion = value;
+                }
+                else if (key.Contains("lead generation ads"))
+                {
+                    financialData.AdvertisingLeadGen = value;
+                }
+                else if (key.Contains("bank charges - merchant fees"))
+                {
+                    financialData.BankCharges = value;
+                }
+                else if (key.Contains("dues and licenses"))
+                {
+                    financialData.DuesAndLicenses = value;
+                }
+                else if (key.Contains("meals"))
+                {
+                    financialData.Meals = value;
+                }
+                else if (key.Contains("vehicle and gas"))
+                {
+                    financialData.VehicleAndGas = value;
+                }
+
+                // 🔹 Payroll Breakdown
+                else if (key.Contains("payroll tax and wcb"))
+                {
+                    financialData.PayrollTaxAndWCB = value;
+                }
+
+                // 🔹 Other Operating Costs
+                else if (key.Contains("utilities"))
+                {
+                    financialData.Utilities = value;
+                }
+                else if (key.Contains("credit card processing"))
+                {
+                    financialData.CreditCardProcessing = value;
+                }
+                else if (key.Contains("occupancy expenses"))
+                {
+                    financialData.OccupancyExpenses = value;
+                }
+                else if (key.Contains("repairs & maintenance"))
+                {
+                    financialData.RepairsAndMaintenance = value;
+                }
+                else if (key.Contains("technology fee"))
+                {
+                    financialData.TechnologyFee = value;
+                }
+                else if (key.Contains("brand fund contribution"))
+                {
+                    financialData.BrandFundContribution = value;
+                }
+                else if (key.Contains("business insurance"))
+                {
+                    financialData.BusinessInsurance = value;
+                }
+                else if (key.Contains("office supplies & subscriptions"))
+                {
+                    financialData.OfficeSuppliesAndSubscriptions = value;
+                }
+                else if (key.Contains("other expenses"))
+                {
+                    financialData.OtherExpenses = value;
+                }
+                else if (key.Contains("sales tax"))
+                {
+                    financialData.SalesTax = value;
+                }
+                else if (key.Contains("health insurance premiums"))
+                {
+                    financialData.HealthInsurancePremiums = value;
+                }
+                else if (key.Contains("retirement contributions"))
+                {
+                    financialData.RetirementContributions = value;
+                }
             }
         }
+
 
 
         //  YoY Growth function

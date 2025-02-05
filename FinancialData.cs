@@ -58,7 +58,41 @@ namespace FranchisorEXE
         public string OfficeSuppliesAndSubscriptionsPercentage { get; set; } = "0.00";
         public string OtherExpensesPercentage { get; set; } = "0.00";
         public string NetEventSalesYoYGrowthRate { get; set; } = "0.00";
-        
+
+        // LHG specific fields
+
+        // Franchise Fees
+        public string RoyaltyFees { get; set; } = "0.00";
+
+        // Indirect Expenses
+        public string IndirectVanInsurance { get; set; } = "0.00";
+        public string IndirectToolsSupplies { get; set; } = "0.00";
+
+        // Payroll Breakdown
+        public string PayrollTaxAndWCB { get; set; } = "0.00";
+
+        // COGS Breakdown
+        public string CostOfDisposal { get; set; } = "0.00";
+        public string CostOfMaterials { get; set; } = "0.00";
+
+        // Advertising & Marketing Breakdown
+        public string AdvertisingAndPromotion { get; set; } = "0.00";
+        public string AdvertisingLeadGen { get; set; } = "0.00";
+
+        // Bank & Merchant Fees
+        public string BankCharges { get; set; } = "0.00";
+        public string CreditCardProcessing { get; set; } = "0.00";
+
+        // General Expenses
+        public string VehicleAndGas { get; set; } = "0.00";
+        public string DuesAndLicenses { get; set; } = "0.00";
+        public string Meals { get; set; } = "0.00";
+
+        public string OccupancyExpenses { get; set; } = "0.00";
+        public string HealthInsurancePremiums { get; set; } = "0.00";
+        public string RetirementContributions { get; set; } = "0.00";
+
+
     }
 
 

@@ -125,7 +125,7 @@ namespace FranchisorEXE
         {
             string[] Date = { "Today", "Week", "Month", "Year", "Year to last month", "Previous year", "Previous month","Previous week",
                 "This year quarter", "Previous year quarter", "Last year to date", "Last year to last month","MonthWise" };
-
+            //string[] Date = {"Year" };
             try
             {
                 string YOYSales = "0";//this will not change no matter what the time period is
@@ -230,35 +230,35 @@ namespace FranchisorEXE
             string PassThruasPercentage = "0.0";
             string CCFeeasPercentage = "0.0";
 
-            string CostOfGoods = FormatAsCurrency(pnl.CostOfGoods);
-            string GrossProfit = FormatAsCurrency(pnl.GrossProfit);
-            string CostOfLabor = FormatAsCurrency(pnl.CostOfLabor);
-            string GrossRevenue = FormatAsCurrency(pnl.GrossRevenue);
-            string TotalExpenses = FormatAsCurrency(pnl.TotalExpenses);
-            string TotalIncome = FormatAsCurrency(pnl.TotalIncome);
-            string NetEventSales = FormatAsCurrency(pnl.TotalIncome); //FormatAsCurrency(pnl.NetEventSales);
-            string FoodCosts = FormatAsCurrency(pnl.FoodCosts);
-            //string EventSupplies = FormatAsCurrency(pnl.EventSupplies);
-            string TotalOtherExpenses = FormatAsCurrency(pnl.TotalOtherExpenses);
-            string NetIncome = FormatAsCurrency(pnl.NetIncome);
-            string TotalPayroll = FormatAsCurrency(pnl.TotalPayroll);
-            string PassThroughGratuities = FormatAsCurrency(pnl.PassThroughGratuities);
-            string MerchantCreditCardProcessing = FormatAsCurrency(pnl.MerchantCreditCardProcessing);
-            string TotalAdvertisingAndMarketing = FormatAsCurrency(pnl.TotalAdvertisingAndMarketing);
-            string TotalOccupancyExpenses = FormatAsCurrency(pnl.TotalOccupancyExpenses);
-            string RepairsAndMaintenance = FormatAsCurrency(pnl.RepairsAndMaintenance);
-            string Utilities = FormatAsCurrency(pnl.Utilities);
-            string Royalty = FormatAsCurrency(pnl.Royalty);
-            string TechnologyFee = FormatAsCurrency(pnl.TechnologyFee);
-            string BrandFundContribution = FormatAsCurrency(pnl.BrandFundContribution);
-            string BusinessInsurance = FormatAsCurrency(pnl.BusinessInsurance);
-            string OfficeSuppliesAndSubscriptions = FormatAsCurrency(pnl.OfficeSuppliesAndSubscriptions);
-            string OtherExpenses = FormatAsCurrency(pnl.OtherExpenses);
-            string SalesTax = FormatAsCurrency(pnl.SalesTax);
-            string HealthInsurancePremiumsExpenses = FormatAsCurrency(pnl.HealthInsurancePremiumsExpenses);
-            string RetirementContributionsExpenses = FormatAsCurrency(pnl.RetirementContributionsExpenses);
-            string NetOperatingIncome = FormatAsCurrency(pnl.NetOperatingIncome);
-            string OperatingExpense = FormatAsCurrency(pnl.NetOperatingIncome);
+            string CostOfGoods = (pnl.CostOfGoods);
+            string GrossProfit = (pnl.GrossProfit);
+            string CostOfLabor = (pnl.CostOfLabor);
+            string GrossRevenue = (pnl.GrossRevenue);
+            string TotalExpenses = (pnl.TotalExpenses);
+            string TotalIncome = (pnl.TotalIncome);
+            string NetEventSales = (pnl.TotalIncome); //(pnl.NetEventSales);
+            string FoodCosts = (pnl.FoodCosts);
+            //string EventSupplies = (pnl.EventSupplies);
+            string TotalOtherExpenses = (pnl.TotalOtherExpenses);
+            string NetIncome = (pnl.NetIncome);
+            string TotalPayroll = (pnl.TotalPayroll);
+            string PassThroughGratuities = (pnl.PassThroughGratuities);
+            string MerchantCreditCardProcessing = (pnl.MerchantCreditCardProcessing);
+            string TotalAdvertisingAndMarketing = (pnl.TotalAdvertisingAndMarketing);
+            string TotalOccupancyExpenses = (pnl.TotalOccupancyExpenses);
+            string RepairsAndMaintenance = (pnl.RepairsAndMaintenance);
+            string Utilities = (pnl.Utilities);
+            string Royalty = (pnl.Royalty);
+            string TechnologyFee = (pnl.TechnologyFee);
+            string BrandFundContribution = (pnl.BrandFundContribution);
+            string BusinessInsurance = (pnl.BusinessInsurance);
+            string OfficeSuppliesAndSubscriptions = (pnl.OfficeSuppliesAndSubscriptions);
+            string OtherExpenses = (pnl.OtherExpenses);
+            string SalesTax = (pnl.SalesTax);
+            string HealthInsurancePremiumsExpenses = (pnl.HealthInsurancePremiumsExpenses);
+            string RetirementContributionsExpenses = (pnl.RetirementContributionsExpenses);
+            string NetOperatingIncome = (pnl.NetOperatingIncome);
+            string OperatingExpense = (pnl.NetOperatingIncome);
 
 
             // Derived formulas calculation  
@@ -280,6 +280,28 @@ namespace FranchisorEXE
             string OtherExpensesPercentage = SafeCalculatePercentage(pnl.OtherExpenses, pnl.NetEventSales);
             string NetEventSalesYoYGrowthRate = pnl.NetEventSalesYoYGrowthRate;
 
+            //LHG Specific Fields
+
+            string RoyaltyFees = (pnl.RoyaltyFees);
+            string IndirectVanInsurance = (pnl.IndirectVanInsurance);
+            string IndirectToolsSupplies = (pnl.IndirectToolsSupplies);
+            string PayrollTaxAndWCB = (pnl.PayrollTaxAndWCB);
+            string CostOfDisposal = (pnl.CostOfDisposal);
+            string CostOfMaterials = (pnl.CostOfMaterials);
+            string AdvertisingAndPromotion = (pnl.AdvertisingAndPromotion);
+            string AdvertisingLeadGen = (pnl.AdvertisingLeadGen);
+            string BankCharges = (pnl.BankCharges);
+            string VehicleAndGas = (pnl.VehicleAndGas);
+            string DuesAndLicenses = (pnl.DuesAndLicenses);
+            string Meals = (pnl.Meals);
+
+            string IndirectVanInsurancePercentage = SafeCalculatePercentage(pnl.IndirectVanInsurance, pnl.NetEventSales);
+            string IndirectToolsSuppliesPercentage = SafeCalculatePercentage(pnl.IndirectToolsSupplies, pnl.NetEventSales);
+            string PayrollTaxAndWCBPercentage = SafeCalculatePercentage(pnl.PayrollTaxAndWCB, pnl.NetEventSales);
+            string CostOfDisposalPercentage = SafeCalculatePercentage(pnl.CostOfDisposal, pnl.NetEventSales);
+            string CostOfMaterialsPercentage = SafeCalculatePercentage(pnl.CostOfMaterials, pnl.NetEventSales);
+
+
 
             // Calculation Part
 
@@ -297,11 +319,6 @@ namespace FranchisorEXE
 
             // Profit Margin Calculation
             double _NetOperatingIncome = string.IsNullOrEmpty(pnl?.NetOperatingIncome) ? 0.00 : Math.Ceiling(Convert.ToDouble(pnl.NetOperatingIncome));
-
-            //double profitmargin = _NetOperatingIncome;
-            // According to JAY Profit Margin % - (Sales 4200 - COGS - Operating Expenses) / Sales 4200 X 100
-            //ProfitMargin = profitmargin.ToString("0").Replace("NaN", "0");
-            //ProfitMarginPercent = (profitmargin * 100).ToString("0.0") + "%";
 
             double _NetEventSales = string.IsNullOrEmpty(pnl?.NetEventSales) ? 0.00 : Math.Ceiling(Convert.ToDouble(pnl.NetEventSales));
             double _CostOfGoods = string.IsNullOrEmpty(pnl?.CostOfGoods) ? 0.00 : Math.Ceiling(Convert.ToDouble(pnl.CostOfGoods));
@@ -331,12 +348,6 @@ namespace FranchisorEXE
 
             ProfitMarginPercent = Math.Round((grossProfit / revenue) * 100).ToString("0.00") + "%";
 
-            //?//
-
-            //ProfitMargin = (_Cost / sales).ToString("0.00");
-            //ProfitMarginPercent = Income
-            //ProfitMarginPercent = _ProfitMarginPercent.ToString("0.0").Replace("∞", "0.0") + "%";
-
             // Efficiency Calculations
             LabourEfficiency = SafeCalculatePercentage(Payroll.ToString(), sales.ToString()).ToString();
             FoodCostEfficiency = SafeCalculatePercentage(FoodCost.ToString(), sales.ToString());
@@ -344,81 +355,100 @@ namespace FranchisorEXE
             PassThruasPercentage = SafeCalculatePercentage(passThru.ToString(), sales.ToString());
             CCFeeasPercentage = SafeCalculatePercentage(ccFee.ToString(), sales.ToString());
 
-
             string result = "INSERT INTO Franchisor.dbo.tbl_FinancialRatioLHG (" +
-                "NetEventSales, TotalExpenses, ProfitMarginPercent, LabourEfficiency, FoodCostEfficiency, EventSuppliesEfficiency, " +
-                "PassThruAsSalePercentage, CCFeesAsSalePercentage, CostOfGoods, Payroll, FoodCost, EventSupply, CCFee, PassThru, " +
-                "FranchaisorID, LocationID, TimePeriod, CreatedDate, ProfitMargin, GrossProfit, CostOfLabor, GrossRevenue, TotalIncome, " +
-                "FoodCosts, EventSupplies, TotalOtherExpenses, NetIncome, TotalPayroll, PassThroughGratuities, MerchantCreditCardProcessing, " +
-                "TotalAdvertisingAndMarketing, TotalOccupancyExpenses, RepairsAndMaintenance, Utilities, TechnologyFee, BrandFundContribution, " +
-                "BusinessInsurance, OfficeSuppliesAndSubscriptions, OtherExpenses, SalesTax, HealthInsurancePremiumsExpenses, RetirementContributionsExpenses, " +
-                "NetOperatingIncome, OperatingExpense, NetOperatingIncomePercentage, NetOperatingIncomeYoYGrowthRate, TotalPayrollPercentage, " +
-                "TotalAdvertisingAndMarketingPercentage, TotalOccupancyExpensesPercentage, RepairsAndMaintenancePercentage, UtilitiesPercentage, " +
-                "RoyaltyPercentage, Royalty, TechnologyFeePercentage, BrandFundContributionPercentage, BusinessInsurancePercentage, " +
-                "MerchantCreditCardProcessingPercentage, OfficeSuppliesAndSubscriptionsPercentage, OtherExpensesPercentage, NetEventSalesYoYGrowthRate,IsMonthWise,ClassID)" +
-                " VALUES('" +
-                NetEventSales.Replace("NaN", "0") + "','" +
-                TotalExpenses.Replace("NaN", "0") + "','" +
-                ProfitMarginPercent.Replace("NaN", "0.0") + "','" +
-                LabourEfficiency.Replace("NaN", "0.0") + "','" +
-                FoodCostEfficiency.Replace("NaN", "0.0") + "','" +
-                EventSuppliesEfficiency.Replace("NaN", "0.0") + "','" +
-                PassThruasPercentage.Replace("NaN", "0.0") + "','" +
-                CCFeeasPercentage.Replace("NaN", "0.0") + "','" +
-                CostOfGoods.Replace("NaN", "0") + "','" +
-                Payroll.ToString("0.00") + "','" +
-                FoodCost.ToString("0.00") + "','" +
-                EventSupplies.ToString("0.00") + "','" +
-                ccFee.ToString("0.00") + "','" +
-                passThru.ToString("0.00") + "','" +
-                qBOSettings.FranchisorID + "','" +
-                qBOSettings.LocationID + "','" +
-                TimePeriod + "','" +
-                DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" +
-                ProfitMargin + "','" +
-                GrossProfit + "','" +
-                CostOfLabor + "','" +
-                GrossRevenue + "','" +
-                TotalIncome + "','" +
-                FoodCosts + "','" +
-                EventSupplies + "','" +
-                TotalOtherExpenses + "','" +
-                NetIncome + "','" +
-                TotalPayroll + "','" +
-                PassThroughGratuities + "','" +
-                MerchantCreditCardProcessing + "','" +
-                TotalAdvertisingAndMarketing + "','" +
-                TotalOccupancyExpenses + "','" +
-                RepairsAndMaintenance + "','" +
-                Utilities + "','" +
-                TechnologyFee + "','" +
-                BrandFundContribution + "','" +
-                BusinessInsurance + "','" +
-                OfficeSuppliesAndSubscriptions + "','" +
-                OtherExpenses + "','" +
-                SalesTax + "','" +
-                HealthInsurancePremiumsExpenses + "','" +
-                RetirementContributionsExpenses + "','" +
-                NetOperatingIncome + "','" +
-                OperatingExpense + "','" +
-                NetOperatingIncomePercentage + "','" +
-                NetOperatingIncomeYoYGrowthRate + "','" +
-                TotalPayrollPercentage + "','" +
-                TotalAdvertisingAndMarketingPercentage + "','" +
-                TotalOccupancyExpensesPercentage + "','" +
-                RepairsAndMaintenancePercentage + "','" +
-                UtilitiesPercentage + "','" +
-                RoyaltyPercentage + "','" +
-                Royalty + "','" +
-                TechnologyFeePercentage + "','" +
-                BrandFundContributionPercentage + "','" +
-                BusinessInsurancePercentage + "','" +
-                MerchantCreditCardProcessingPercentage + "','" +
-                OfficeSuppliesAndSubscriptionsPercentage + "','" +
-                OtherExpensesPercentage + "','" +
-                NetEventSalesYoYGrowthRate + "','" +
-                IsMonthWise + "','" +
-                qBOSettings.ClassID + "');";
+            "NetEventSales, TotalExpenses, ProfitMarginPercent, LabourEfficiency, FoodCostEfficiency, EventSuppliesEfficiency, " +
+            "PassThruAsSalePercentage, CCFeesAsSalePercentage, CostOfGoods, Payroll, FoodCost, EventSupply, CCFee, PassThru, " +
+            "FranchaisorID, LocationID, TimePeriod, CreatedDate, ProfitMargin, GrossProfit, CostOfLabor, GrossRevenue, TotalIncome, " +
+            "FoodCosts, EventSupplies, TotalOtherExpenses, NetIncome, TotalPayroll, PassThroughGratuities, MerchantCreditCardProcessing, " +
+            "TotalAdvertisingAndMarketing, TotalOccupancyExpenses, RepairsAndMaintenance, Utilities, TechnologyFee, BrandFundContribution, " +
+            "BusinessInsurance, OfficeSuppliesAndSubscriptions, OtherExpenses, SalesTax, HealthInsurancePremiumsExpenses, RetirementContributionsExpenses, " +
+            "NetOperatingIncome, OperatingExpense, NetOperatingIncomePercentage, NetOperatingIncomeYoYGrowthRate, TotalPayrollPercentage, " +
+            "TotalAdvertisingAndMarketingPercentage, TotalOccupancyExpensesPercentage, RepairsAndMaintenancePercentage, UtilitiesPercentage, " +
+            "RoyaltyPercentage, Royalty, TechnologyFeePercentage, BrandFundContributionPercentage, BusinessInsurancePercentage, " +
+            "MerchantCreditCardProcessingPercentage, OfficeSuppliesAndSubscriptionsPercentage, OtherExpensesPercentage, NetEventSalesYoYGrowthRate, " +
+            "IsMonthWise, ClassID, RoyaltyFees, IndirectVanInsurance, IndirectToolsSupplies, PayrollTaxAndWCB, CostOfDisposal, CostOfMaterials, " +
+            "AdvertisingAndPromotion, AdvertisingLeadGen, BankCharges, VehicleAndGas, DuesAndLicenses, Meals, IndirectVanInsurancePercentage, " +
+            "IndirectToolsSuppliesPercentage, PayrollTaxAndWCBPercentage, CostOfDisposalPercentage, CostOfMaterialsPercentage) " +
+            "VALUES (" +
+            NetEventSales.Replace("NaN", "0") + "," +
+            TotalExpenses.Replace("NaN", "0") + ",'" +
+            ProfitMarginPercent.Replace("NaN", "0.0") + "','" +
+            LabourEfficiency.Replace("NaN", "0.0") + "','" +
+            FoodCostEfficiency.Replace("NaN", "0.0") + "','" +
+            EventSuppliesEfficiency.Replace("NaN", "0.0") + "','" +
+            PassThruasPercentage.Replace("NaN", "0.0") + "','" +
+            CCFeeasPercentage.Replace("NaN", "0.0") + "'," +
+            CostOfGoods.Replace("NaN", "0") + "," +
+            Payroll.ToString("0.00") + "," +
+            FoodCost.ToString("0.00") + "," +
+            EventSupplies.ToString("0.00") + "," +
+            ccFee.ToString("0.00") + "," +
+            passThru.ToString("0.00") + "," +
+            qBOSettings.FranchisorID + "," +
+            qBOSettings.LocationID + ",'" +
+            TimePeriod + "','" +
+            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" +
+            ProfitMargin + "'," +
+            GrossProfit + "," +
+            CostOfLabor + "," +
+            GrossRevenue + "," +
+            TotalIncome + "," +
+            FoodCosts + "," +
+            EventSupplies + "," +
+            TotalOtherExpenses + "," +
+            NetIncome + "," +
+            TotalPayroll + "," +
+            PassThroughGratuities + "," +
+            MerchantCreditCardProcessing + "," +
+            TotalAdvertisingAndMarketing + "," +
+            TotalOccupancyExpenses + "," +
+            RepairsAndMaintenance + "," +
+            Utilities + "," +
+            TechnologyFee + "," +
+            BrandFundContribution + "," +
+            BusinessInsurance + "," +
+            OfficeSuppliesAndSubscriptions + "," +
+            OtherExpenses + "," +
+            SalesTax + "," +
+            HealthInsurancePremiumsExpenses + "," +
+            RetirementContributionsExpenses + "," +
+            NetOperatingIncome + "," +
+            OperatingExpense + ",'" +
+            NetOperatingIncomePercentage + "','" +
+            NetOperatingIncomeYoYGrowthRate + "','" +
+            TotalPayrollPercentage + "','" +
+            TotalAdvertisingAndMarketingPercentage + "','" +
+            TotalOccupancyExpensesPercentage + "','" +
+            RepairsAndMaintenancePercentage + "','" +
+            UtilitiesPercentage + "','" +
+            RoyaltyPercentage + "'," +
+            Royalty + ",'" +
+            TechnologyFeePercentage + "','" +
+            BrandFundContributionPercentage + "','" +
+            BusinessInsurancePercentage + "','" +
+            MerchantCreditCardProcessingPercentage + "','" +
+            OfficeSuppliesAndSubscriptionsPercentage + "','" +
+            OtherExpensesPercentage + "','" +
+            NetEventSalesYoYGrowthRate + "'," +
+            (IsMonthWise ? "1" : "0") + "," +
+            (string.IsNullOrEmpty(qBOSettings.ClassID) ? "NULL" : qBOSettings.ClassID) + "," + // Fix ClassID issue
+            RoyaltyFees + "," +
+            IndirectVanInsurance + "," +
+            IndirectToolsSupplies + "," +
+            PayrollTaxAndWCB + "," +
+            CostOfDisposal + "," +
+            CostOfMaterials + "," +
+            AdvertisingAndPromotion + "," +
+            AdvertisingLeadGen + "," +
+            BankCharges + "," +
+            VehicleAndGas + "," +
+            DuesAndLicenses + "," +
+            Meals + ",'" +
+            IndirectVanInsurancePercentage + "','" +
+            IndirectToolsSuppliesPercentage + "','" +
+            PayrollTaxAndWCBPercentage + "','" +
+            CostOfDisposalPercentage + "','" +
+            CostOfMaterialsPercentage + "');";
 
             //Common.WriteLog("Generate query: " + DateTime.Now.ToString());
 
