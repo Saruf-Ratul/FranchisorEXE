@@ -66,12 +66,30 @@ namespace FranchisorEXE
             return percentage.ToString("N1", CultureInfo.GetCultureInfo("en-US")) + "%";
         }
 
+        private void TruncateFinancialRatioTable(Database db)
+        {
+            try
+            {
+                string truncateQuery = "TRUNCATE TABLE Franchisor.dbo.tbl_FinancialRatioLHG;";
+                DataTable dt;
+                db.Execute(truncateQuery, out dt);
+                Common.WriteLog("Table truncated: tbl_FinancialRatioLHG");
+            }
+            catch (Exception ex)
+            {
+                Common.WriteLog("Error truncating table: " + ex.Message);
+                throw; // rethrow if you want to stop further processing
+            }
+        }
+
         public void Get_FinancialRatio_DataLHG()
         {
             Common.WriteLog("---------- Process start: " + DateTime.Now.ToString() + "-------------");
 
             Database db = new Database();
             db.Open();
+
+            TruncateFinancialRatioTable(db);
 
             DataTable dtLocations = GetLocationList();
 
