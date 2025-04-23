@@ -2,6 +2,7 @@
 using Intuit.Ipp.Data;
 using Intuit.Ipp.ReportService;
 using Intuit.Ipp.Security;
+using QuickBooksSharp.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -143,7 +144,7 @@ namespace FranchisorEXE
         {
             string[] Date = { "Today", "Week", "Month", "Year", "Year to last month", "Previous year", "Previous month","Previous week",
                 "This year quarter", "Previous year quarter", "Last year to date", "Last year to last month","MonthWise" };
-            //string[] Date = {"Year" };
+            //string[] Date = { "Year" };
             try
             {
                 string YOYSales = "0";//this will not change no matter what the time period is
@@ -357,6 +358,7 @@ namespace FranchisorEXE
             double netIncome = Convert.ToDouble(pnl.NetIncome);
             double revenue = Convert.ToDouble(pnl.TotalIncome);
             double grossProfit = Convert.ToDouble(pnl.GrossProfit);
+            double cogsData = Convert.ToDouble(pnl.CostOfGoods);
             double profitMargin = Math.Round((netIncome / revenue) * 100, 2);
 
             //ProfitMargin = (netIncome / revenue).ToString("0.00");
@@ -364,7 +366,10 @@ namespace FranchisorEXE
 
             ProfitMargin = Math.Round(netIncome / revenue * 100).ToString("0.00") + "%";
 
-            ProfitMarginPercent = Math.Round((grossProfit / revenue) * 100).ToString("0.00") + "%";
+            //ProfitMarginPercent = Math.Round((grossProfit / revenue) * 100).ToString("0.00") + "%";
+            ProfitMarginPercent = Math.Round(((revenue - cogsData) / revenue) * 100, 2).ToString("0.00") + "%";
+
+            string grossProfitData = Math.Round((revenue - cogsData) , 2).ToString("0.00");
 
             // Efficiency Calculations
             LabourEfficiency = SafeCalculatePercentage(Payroll.ToString(), sales.ToString()).ToString();
@@ -407,7 +412,7 @@ namespace FranchisorEXE
             TimePeriod + "','" +
             DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" +
             ProfitMargin + "'," +
-            GrossProfit + "," +
+            grossProfitData + "," +
             CostOfLabor + "," +
             GrossRevenue + "," +
             TotalIncome + "," +
