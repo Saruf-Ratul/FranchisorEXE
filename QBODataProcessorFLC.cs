@@ -555,7 +555,7 @@ namespace FranchisorEXE
                 {
                     financialData.CostOfLabor = value;
                 }
-                else if (key.Contains("net operating income"))
+                else if (key.Contains("net income"))
                 {
                     financialData.NetIncome = value;
                     financialData.NetOperatingIncome = value;
