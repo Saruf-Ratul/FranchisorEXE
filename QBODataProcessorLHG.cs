@@ -149,6 +149,28 @@ namespace FranchisorEXE
                     dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).ToString("yyyy-MM-dd"); ; // Last day of the previous month
 
                     break;
+                case "Previous 2nd month":
+                    DateTime secondPreviousMonth = DateTime.Now.AddMonths(-2);
+                    dateStart = new DateTime(secondPreviousMonth.Year, secondPreviousMonth.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(secondPreviousMonth.Year, secondPreviousMonth.Month, DateTime.DaysInMonth(secondPreviousMonth.Year, secondPreviousMonth.Month)).ToString("yyyy-MM-dd");
+                    break;
+                case "Previous 3rd month":
+                    DateTime thirdPreviousMonth = DateTime.Now.AddMonths(-3);
+                    dateStart = new DateTime(thirdPreviousMonth.Year, thirdPreviousMonth.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(thirdPreviousMonth.Year, thirdPreviousMonth.Month, DateTime.DaysInMonth(thirdPreviousMonth.Year, thirdPreviousMonth.Month)).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Month 1st half":
+                    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 14).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Month 2nd half":
+                    int lastDay = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 15).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, lastDay).ToString("yyyy-MM-dd");
+                    break;
+
                 case "This year quarter":
                     int currentQuarter = (DateTime.Now.Month - 1) / 3 + 1;
                     dateStart = GetStartOfQuarter(DateTime.Now.Year, currentQuarter).ToString("yyyy-MM-dd"); ;
