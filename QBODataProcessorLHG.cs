@@ -170,6 +170,32 @@ namespace FranchisorEXE
                     dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 15).ToString("yyyy-MM-dd");
                     dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, lastDay).ToString("yyyy-MM-dd");
                     break;
+                case "Previous 2nd Month 1st half":
+                    DateTime prev2ndMonth1st = DateTime.Now.AddMonths(-2);
+                    dateStart = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Previous 2nd Month 2nd half":
+                    DateTime prev2ndMonth2nd = DateTime.Now.AddMonths(-2);
+                    int lastDay2nd = DateTime.DaysInMonth(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month);
+                    dateStart = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, lastDay2nd).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Previous 3rd Month 1st half":
+                    DateTime prev3rdMonth1st = DateTime.Now.AddMonths(-3);
+                    dateStart = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Previous 3rd Month 2nd half":
+                    DateTime prev3rdMonth2nd = DateTime.Now.AddMonths(-3);
+                    int lastDay3rd = DateTime.DaysInMonth(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month);
+                    dateStart = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, lastDay3rd).ToString("yyyy-MM-dd");
+                    break;
+
 
                 case "This year quarter":
                     int currentQuarter = (DateTime.Now.Month - 1) / 3 + 1;
@@ -504,6 +530,8 @@ namespace FranchisorEXE
             {
                 reportsService.classid = ClassID;
             }
+            // ✅ Use string instead of enum to support all SDK versions
+            reportsService.accounting_method = "Cash"; // or "Accrual"
 
             // Execute Report API call
             Report report = reportsService.ExecuteReport("ProfitAndLoss");

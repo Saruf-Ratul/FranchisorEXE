@@ -375,7 +375,7 @@ namespace FranchisorEXE
             return -1;
         }
         
-        private void getValueFromBalanceSheet(ServiceContext context, CashFlowInfo cfInfo)
+        private void getValueFromBalanceSheet_old(ServiceContext context, CashFlowInfo cfInfo)
         {
 
             try
@@ -386,6 +386,9 @@ namespace FranchisorEXE
                 ReportService reportsService = new ReportService(context);
                 reportsService.start_date = dateStart;
                 reportsService.end_date = dateEnd;
+
+                // ✅ Use string instead of enum to support all SDK versions
+                reportsService.accounting_method = "Cash"; // or "Accrual"
 
                 //Execute Report API call
                 Report report = reportsService.ExecuteReport("BalanceSheet");
@@ -478,7 +481,113 @@ namespace FranchisorEXE
             }
 
         }
-        
+
+        private void getValueFromBalanceSheet(ServiceContext context, CashFlowInfo cfInfo)
+        {
+
+            try
+            {
+                string dateStart = DateTime.Now.FirstDayOfYear().ToString("yyyy-MM-dd");
+                string dateEnd = DateTime.Today.ToString("yyyy-MM-dd");
+
+                ReportService reportsService = new ReportService(context);
+                reportsService.start_date = dateStart;
+                reportsService.end_date = dateEnd;
+                // ✅ Use string instead of enum to support all SDK versions
+                reportsService.accounting_method = "Cash"; // or "Accrual"
+
+                //Execute Report API call
+                Report report = reportsService.ExecuteReport("BalanceSheet");
+
+                Row[] rows = report.Rows;
+
+                try
+                {
+
+                    for (int rowIndex = 0; rowIndex < rows.Length; rowIndex++)
+                    {
+                        Row row = rows[rowIndex];
+
+                        try
+                        {
+                            if (row.group == "TotalAssets")
+                            {
+                                Rows rs1 = GetRowProperty<Rows>(row, ItemsChoiceType1.Rows);
+                                Row rs1r1 = rs1.Row[0];
+                                // start on 5/30/2024 by naz
+                                Summary rowSummaryAsset = GetRowProperty<Summary>(rs1r1, ItemsChoiceType1.Summary);
+                                cfInfo.TotalCurrentAssets = rowSummaryAsset.ColData[1].value;
+                                // end on 5/330/2024 by naz
+                                Rows rs2 = GetRowProperty<Rows>(rs1r1, ItemsChoiceType1.Rows);
+                                Row rs2r0 = rs2.Row[0];
+
+                                Row rs2r1 = rs2.Row[0];
+                                if (rs2.Row.Length > 1)
+                                {
+                                    rs2r1 = rs2.Row[1];
+
+                                }
+                                Summary rowSummary0 = GetRowProperty<Summary>(rs2r0, ItemsChoiceType1.Summary);
+                                Summary rowSummary1 = GetRowProperty<Summary>(rs2r1, ItemsChoiceType1.Summary);
+                                ColData[] ScolData = rowSummary1.ColData;
+                                string bs1 = ScolData[0].value;
+                                cfInfo.AccountReceivable = ScolData[1].value;
+
+                                ScolData = rowSummary0.ColData;
+                                cfInfo.TotalBankAccounts = ScolData[1].value;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+
+                        try
+                        {
+                            if (row.group == "TotalLiabilitiesAndEquity")
+                            {
+                                Rows rs1 = GetRowProperty<Rows>(row, ItemsChoiceType1.Rows);
+                                Row rs1r1 = rs1.Row[0];
+                                // start on 5/30/2024 by naz
+                                Summary rowSummaryAsset = GetRowProperty<Summary>(rs1r1, ItemsChoiceType1.Summary);
+                                cfInfo.TotalCurrentLiabilities = rowSummaryAsset.ColData[1].value;
+                                // end on 5/330/2024 by naz
+                                Rows rs2 = GetRowProperty<Rows>(rs1r1, ItemsChoiceType1.Rows);
+                                Row rs2r1 = rs2.Row[0];
+                                Rows rs3 = GetRowProperty<Rows>(rs2r1, ItemsChoiceType1.Rows);
+                                Row rs3r1 = rs3.Row[0];
+                                Summary rowSummary1 = GetRowProperty<Summary>(rs3r1, ItemsChoiceType1.Summary);
+                                ColData[] ScolData = rowSummary1.ColData;
+                                string bs1 = ScolData[0].value;
+                                cfInfo.AccountPayable = ScolData[1].value;
+
+                                Row rs3r2 = rs3.Row[1];
+                                rowSummary1 = GetRowProperty<Summary>(rs3r2, ItemsChoiceType1.Summary);
+                                ScolData = rowSummary1.ColData;
+                                bs1 = ScolData[0].value;
+                                cfInfo.CCBalance = ScolData[1].value;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
         public ProfitAndLossInfo GetProfitAndLossInfo(string TimePeriod, QBOSettings qbs)
         {
             ProfitAndLossInfo pnl = new ProfitAndLossInfo();

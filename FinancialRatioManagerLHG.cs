@@ -142,10 +142,16 @@ namespace FranchisorEXE
 
         private void FillProfitAndLosData(QBOSettings qbs,Database db, string classID = "")
         {
-            string[] Date = { "Today", "Week", "Month", "Year", "Year to last month", "Previous year", "Previous month","Previous week",
-                "This year quarter", "Previous year quarter", "Last year to date", "Last year to last month","MonthWise","Previous 2nd month","Previous 3rd month","Month 1st half","Month 2nd half" };
+            string[] Date = { 
+                "Today", "Week", "Month", "Year", "Year to last month", "Previous year",
+                "Previous month","Previous week", "This year quarter", "Previous year quarter",
+                "Last year to date", "Last year to last month","MonthWise","Previous 2nd month",
+                "Previous 3rd month","Month 1st half","Month 2nd half",
+                "Previous 2nd Month 1st half", "Previous 2nd Month 2nd half",
+                "Previous 3rd Month 1st half", "Previous 3rd Month 2nd half"
+            };
+
             //string[] Date = {  "Month","Previous month","Previous 2nd month", "Previous 3rd month","Month 1st half","Month 2nd half" };
-            //string[] Date = {  "Month 1st half","Month 2nd half" };
             try
             {
                 string YOYSales = "0";//this will not change no matter what the time period is
