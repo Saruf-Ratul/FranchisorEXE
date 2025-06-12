@@ -196,6 +196,27 @@ namespace FranchisorEXE
                     dateEnd = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, lastDay3rd).ToString("yyyy-MM-dd");
                     break;
 
+                case "Previous 4th Month":
+                    DateTime prev4thMonth = DateTime.Now.AddMonths(-4);
+                    int lastDay4th = DateTime.DaysInMonth(prev4thMonth.Year, prev4thMonth.Month);
+                    dateStart = new DateTime(prev4thMonth.Year, prev4thMonth.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev4thMonth.Year, prev4thMonth.Month, lastDay4th).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Previous 4th Month 1st half":
+                    DateTime prev4thMonth1st = DateTime.Now.AddMonths(-4);
+                    dateStart = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    break;
+
+                case "Previous 4th Month 2nd half":
+                    DateTime prev4thMonth2nd = DateTime.Now.AddMonths(-4);
+                    int lastDay4thHalf = DateTime.DaysInMonth(prev4thMonth2nd.Year, prev4thMonth2nd.Month);
+                    dateStart = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, lastDay4thHalf).ToString("yyyy-MM-dd");
+                    break;
+
+
 
                 case "This year quarter":
                     int currentQuarter = (DateTime.Now.Month - 1) / 3 + 1;

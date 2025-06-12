@@ -148,7 +148,8 @@ namespace FranchisorEXE
                 "Last year to date", "Last year to last month","MonthWise","Previous 2nd month",
                 "Previous 3rd month","Month 1st half","Month 2nd half",
                 "Previous 2nd Month 1st half", "Previous 2nd Month 2nd half",
-                "Previous 3rd Month 1st half", "Previous 3rd Month 2nd half"
+                "Previous 3rd Month 1st half", "Previous 3rd Month 2nd half",
+                "Previous 4th Month", "Previous 4th Month 1st half", "Previous 4th Month 2nd half"
             };
 
             //string[] Date = {  "Month","Previous month","Previous 2nd month", "Previous 3rd month","Month 1st half","Month 2nd half" };
