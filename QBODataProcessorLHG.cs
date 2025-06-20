@@ -144,6 +144,7 @@ namespace FranchisorEXE
                     dateEnd = new DateTime(DateTime.Now.Year - 1, 12, 31).ToString("yyyy-MM-dd");// 31st December of the previous year
 
                     break;
+
                 case "Previous month":
                     dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1).ToString("yyyy-MM-dd"); ; // 1st day of the previous month
                     dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).ToString("yyyy-MM-dd"); ; // Last day of the previous month
@@ -160,60 +161,99 @@ namespace FranchisorEXE
                     dateEnd = new DateTime(thirdPreviousMonth.Year, thirdPreviousMonth.Month, DateTime.DaysInMonth(thirdPreviousMonth.Year, thirdPreviousMonth.Month)).ToString("yyyy-MM-dd");
                     break;
 
+                //case "Month 1st half":
+                //    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 15).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Month 2nd half":
+                //    int lastDay = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                //    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 16).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, lastDay).ToString("yyyy-MM-dd");
+                //    break;
+                //case "Previous 2nd Month 1st half":
+                //    DateTime prev2ndMonth1st = DateTime.Now.AddMonths(-1);
+                //    dateStart = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 2nd Month 2nd half":
+                //    DateTime prev2ndMonth2nd = DateTime.Now.AddMonths(-2);
+                //    int lastDay2nd = DateTime.DaysInMonth(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month);
+                //    dateStart = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, lastDay2nd).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 3rd Month 1st half":
+                //    DateTime prev3rdMonth1st = DateTime.Now.AddMonths(-2);
+                //    dateStart = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 3rd Month 2nd half":
+                //    DateTime prev3rdMonth2nd = DateTime.Now.AddMonths(-2);
+                //    int lastDay3rd = DateTime.DaysInMonth(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month);
+                //    dateStart = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, lastDay3rd).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 4th Month":
+                //    DateTime prev4thMonth = DateTime.Now.AddMonths(-3);
+                //    int lastDay4th = DateTime.DaysInMonth(prev4thMonth.Year, prev4thMonth.Month);
+                //    dateStart = new DateTime(prev4thMonth.Year, prev4thMonth.Month, 1).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev4thMonth.Year, prev4thMonth.Month, lastDay4th).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 4th Month 1st half":
+                //    DateTime prev4thMonth1st = DateTime.Now.AddMonths(-3);
+                //    dateStart = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 1).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                //    break;
+
+                //case "Previous 4th Month 2nd half":
+                //    DateTime prev4thMonth2nd = DateTime.Now.AddMonths(-3);
+                //    int lastDay4thHalf = DateTime.DaysInMonth(prev4thMonth2nd.Year, prev4thMonth2nd.Month);
+                //    dateStart = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, 16).ToString("yyyy-MM-dd");
+                //    dateEnd = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, lastDay4thHalf).ToString("yyyy-MM-dd");
+                //    break;
+
+                // Half-Months
                 case "Month 1st half":
-                    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 14).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(0, true);
                     break;
 
                 case "Month 2nd half":
-                    int lastDay = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-                    dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 15).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, lastDay).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(0, false);
                     break;
+
                 case "Previous 2nd Month 1st half":
-                    DateTime prev2ndMonth1st = DateTime.Now.AddMonths(-2);
-                    dateStart = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 1).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev2ndMonth1st.Year, prev2ndMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(1, true);
                     break;
 
                 case "Previous 2nd Month 2nd half":
-                    DateTime prev2ndMonth2nd = DateTime.Now.AddMonths(-2);
-                    int lastDay2nd = DateTime.DaysInMonth(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month);
-                    dateStart = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, 16).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev2ndMonth2nd.Year, prev2ndMonth2nd.Month, lastDay2nd).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(1, false);
                     break;
 
                 case "Previous 3rd Month 1st half":
-                    DateTime prev3rdMonth1st = DateTime.Now.AddMonths(-3);
-                    dateStart = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 1).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev3rdMonth1st.Year, prev3rdMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(2, true);
                     break;
 
                 case "Previous 3rd Month 2nd half":
-                    DateTime prev3rdMonth2nd = DateTime.Now.AddMonths(-3);
-                    int lastDay3rd = DateTime.DaysInMonth(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month);
-                    dateStart = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, 16).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev3rdMonth2nd.Year, prev3rdMonth2nd.Month, lastDay3rd).ToString("yyyy-MM-dd");
-                    break;
-
-                case "Previous 4th Month":
-                    DateTime prev4thMonth = DateTime.Now.AddMonths(-4);
-                    int lastDay4th = DateTime.DaysInMonth(prev4thMonth.Year, prev4thMonth.Month);
-                    dateStart = new DateTime(prev4thMonth.Year, prev4thMonth.Month, 1).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev4thMonth.Year, prev4thMonth.Month, lastDay4th).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(2, false);
                     break;
 
                 case "Previous 4th Month 1st half":
-                    DateTime prev4thMonth1st = DateTime.Now.AddMonths(-4);
-                    dateStart = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 1).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev4thMonth1st.Year, prev4thMonth1st.Month, 15).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(3, true);
                     break;
 
                 case "Previous 4th Month 2nd half":
-                    DateTime prev4thMonth2nd = DateTime.Now.AddMonths(-4);
-                    int lastDay4thHalf = DateTime.DaysInMonth(prev4thMonth2nd.Year, prev4thMonth2nd.Month);
-                    dateStart = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, 16).ToString("yyyy-MM-dd");
-                    dateEnd = new DateTime(prev4thMonth2nd.Year, prev4thMonth2nd.Month, lastDay4thHalf).ToString("yyyy-MM-dd");
+                    (dateStart, dateEnd) = GetHalfMonthRange(3, false);
+                    break;
+
+                case "Previous 4th Month":
+                    DateTime fourthPrevMonth = DateTime.Now.AddMonths(-4);
+                    dateStart = new DateTime(fourthPrevMonth.Year, fourthPrevMonth.Month, 1).ToString("yyyy-MM-dd");
+                    dateEnd = new DateTime(fourthPrevMonth.Year, fourthPrevMonth.Month, DateTime.DaysInMonth(fourthPrevMonth.Year, fourthPrevMonth.Month)).ToString("yyyy-MM-dd");
                     break;
 
 
@@ -270,6 +310,20 @@ namespace FranchisorEXE
 
             }
             return (dateStart, dateEnd);
+        }
+
+        private (string, string) GetHalfMonthRange(int monthsAgo, bool isFirstHalf)
+        {
+            DateTime target = DateTime.Now.AddMonths(-monthsAgo);
+            DateTime start = isFirstHalf
+                ? new DateTime(target.Year, target.Month, 1)
+                : new DateTime(target.Year, target.Month, 16);
+
+            DateTime end = isFirstHalf
+                ? new DateTime(target.Year, target.Month, 15)
+                : new DateTime(target.Year, target.Month, DateTime.DaysInMonth(target.Year, target.Month));
+
+            return (start.ToString("yyyy-MM-dd"), end.ToString("yyyy-MM-dd"));
         }
 
         public static DateTime GetStartOfQuarter(int year, int quarter)
